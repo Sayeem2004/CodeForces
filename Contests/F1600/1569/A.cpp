@@ -7,16 +7,15 @@ int main() {
     cin.tie(0); cout.tie(0);
     int t; cin >> t; while (t--) {
         int n; cin >> n;
-        vector<int> V(n);
-        for (int i = 0; i < n; i++)
-            cin >> V[i];
-        cout << 0 << " ";
-        int z = V[0];
+        string s; cin >> s;
+        bool br = true;
         for (int i = 1; i < n; i++) {
-            int y = ~V[i] & z;
-            cout << y << " ";
-            z = V[i] ^ y;
+            if (s[i] != s[i-1]) {
+                br = false;
+                cout << i << " " << i+1 << "\n";
+                break;
+            }
         }
-        cout <<  "\n";
+        if (br) cout << -1 << " " << -1 << "\n";
     }
 }
